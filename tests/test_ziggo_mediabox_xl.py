@@ -6,7 +6,7 @@
 
 import unittest
 
-from ziggo_mediabox_xl import ziggo_mediabox_xl
+import ziggo_mediabox_xl
 
 
 class TestZiggo_mediabox_xl(unittest.TestCase):
