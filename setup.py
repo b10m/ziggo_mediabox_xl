@@ -17,13 +17,13 @@ test_requirements = [ ]
 
 setup(
     name='ziggo_mediabox_xl',
-    version='0.1.1',
+    version='1.0.0',
     description="Python interface to Ziggo's Mediabox XL",
     long_description=readme + '\n\n' + history,
     author="Menno Blom",
     author_email='menno@b10m.net',
     url='https://github.com/b10m/ziggo_mediabox_xl',
-    packages=find_packages(include=['ziggo_mediabox_xl']),
+    py_modules=['ziggo_mediabox_xl'],
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
