@@ -11,13 +11,13 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ 'requests>=2.9.1' ]
+requirements = [ 'requests>=2.20.0' ]
 setup_requirements = [ ]
 test_requirements = [ ]
 
 setup(
     name='ziggo_mediabox_xl',
-    version='1.0.0',
+    version='1.1.0',
     description="Python interface to Ziggo's Mediabox XL",
     long_description=readme + '\n\n' + history,
     author="Menno Blom",
