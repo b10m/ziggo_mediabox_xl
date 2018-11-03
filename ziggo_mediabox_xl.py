@@ -10,8 +10,9 @@ class ZiggoMediaboxXL(object):
     Library to command the Ziggo Mediabox XL.
     """
 
-    def __init__(self, ip):
+    def __init__(self, ip, timeout=5):
         self._ip = ip
+        self._timeout = timeout
         self._port = {"state": 62137, "cmd": 5900}
         self._channels_url = 'https://restapi.ziggo.nl/1.0/channels-overview'
         self._fetch_channels()
@@ -41,6 +42,7 @@ class ZiggoMediaboxXL(object):
     def test_connection(self):
         """Make sure we can reach the given IP address."""
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(self._timeout)
         try:
             if sock.connect_ex((self._ip, self._port['cmd'])) == 0:
                 return True
@@ -57,6 +59,7 @@ class ZiggoMediaboxXL(object):
     def update_state(self):
         """Find out whether the media box is turned on/off."""
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(self._timeout)
         try:
             if sock.connect_ex((self._ip, self._port['state'])) == 0:
                 self.state = True
