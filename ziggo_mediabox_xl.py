@@ -73,6 +73,7 @@ class ZiggoMediaboxXL(object):
         """Send keys to the device."""
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(self._timeout)
             sock.connect((self._ip, self._port['cmd']))
             # mandatory dance
             version_info = sock.recv(15)
